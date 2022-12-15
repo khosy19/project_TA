@@ -13,7 +13,7 @@
         </p>
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Tambah Meja</h3>
+              <h3 class="card-title">Form Edit Meja</h3>
             </div>
             <form role="form">
               <div class="card-body">

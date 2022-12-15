@@ -171,28 +171,28 @@ class AdminController extends Controller
     }
     public function editMenu($id)
     {
-        $menu = Menu::join('kategoris', 'kategoris.id_kategori', '=', 'menus.id_menu')->find($id);
-        $option_menu = Kategori::all();
+        $menu = Menu::join('kategoris', 'kategoris.id_kategori', '=', 'menus.id_kategori')->find($id);
+        $kategori = Kategori::all();
         return view('menu.menu-edit',[
             'data'=>$menu,
-            'kategori'=>$option_menu,
+            'kategori'=>$kategori,
         ]);
         
     }
     public function updateMenu($id, Request $request)
     {
-        $request->validate([
-            'nama_menu' => 'required',
-            'kategori' => 'required',
-            'harga' => 'required',
-            'status_menu' => 'required',
-        ]);
-        $menu = Menu::find($id);
-        $menu -> nama_menu = $request -> nama_menu;
-        $menu -> id_kategori = $request -> kategori;
-        $menu -> harga = $request -> harga;
-        $menu -> status_menu = $request -> status_menu;
-        $menu -> save();
+        // $request->validate([
+        //     'nama_menu' => 'required',
+        //     'kategori' => 'required',
+        //     'harga' => 'required',
+        //     'status_menu' => 'required',
+        // ]);
+        $menu = Menu::where('id_menu', $id)->first();
+        $menu->nama_menu    = $request->nama_menu;
+        $menu->id_kategori  = $request->nama_kategori;
+        $menu->harga        = $request->harga;
+        $menu->status_menu  = $request->status_menu;
+        $menu->save();
         $request->session()->flash('msg',"Data sudah diupdate");
             return redirect('/admin/menu-home');
         
