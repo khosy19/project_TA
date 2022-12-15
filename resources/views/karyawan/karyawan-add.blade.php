@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<form action="{{ route('saveKaryawan') }}" method="post">
+<form action="{{ route('storeKaryawan') }}" method="post">
     @csrf
     <td>
         @if (session('msg'))
