@@ -33,7 +33,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>@sortablelink('nama_kategori','Nama Kategori')</th>
+                    <th>Nama Kategori</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

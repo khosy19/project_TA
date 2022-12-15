@@ -33,7 +33,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>@sortablelink('nama_menu','Nama Menu')</th>
+                    {{-- <th>@sortablelink('nama_menu','Nama Menu')</th> --}}
+                    <th>Nama Menu</th>
                     <th>Nama Kategori</th>
                     <th>Harga</th>
                     <th>Status Menu</th>

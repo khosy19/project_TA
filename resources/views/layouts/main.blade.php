@@ -144,6 +144,7 @@
       "autoWidth": false,
       "responsive": true,
       "lengthMenu" : [5,10,20,-1],
+      "text-align" center,
     });
 } );
 </script>
