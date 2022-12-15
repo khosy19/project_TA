@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\SessionController;
 use App\Models\Karyawan;
 
 // Route::get('/', function () {
@@ -95,6 +96,10 @@ Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showM
 Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
 Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
 Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
+
+// ====================LOGIN===========================
+Route::get('/auth/login', [SessionController::class,'tampilLogin'])->name('tampilLogin');
+Route::post('/auth/loginUser', [SessionController::class,'Login'])->name('Login');
 
 
 // Route::controller(AdminController::class)->group(function () {

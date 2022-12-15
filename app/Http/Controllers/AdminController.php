@@ -284,6 +284,27 @@ public function hapusMeja($id)
     return redirect()->route('showMeja')->with('hapus','Data disimpan');
 }
 
+public function lihatPemesanan()
+{
+    
+}
+public function order()
+{
+    
+}
+public function antrianMasuk(){
+
+}
+public function lihatPembayaran(){
+
+}
+public function fcfs_1(){
+
+}
+public function fcfs_2(){
+
+}
+
     // raw query
     // public function saveKaryawan(Request $data)
     // {

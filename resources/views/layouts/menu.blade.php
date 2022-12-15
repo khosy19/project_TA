@@ -57,6 +57,43 @@
                 </a>
               </li>
             </ul>
-          </li>     
+          </li> 
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Data Transaksi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item has-treeview">
+                <a href="{{ url('admin/karyawan-home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Data Pemesanan
+                    <i class="right fas fa-angle-right"></i>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ url('admin/jabatan-home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Data Order
+                    <i class="right fas fa-angle-right"></i>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ url('admin/menu-home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Data Antrian
+                    <i class="right fas fa-angle-right"></i>
+                  </p>
+                </a>
+              </li>
+          </li>    
     </ul>
 </nav>
