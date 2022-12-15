@@ -6,6 +6,7 @@ use Throwable;
 use App\Models\Jabatan;
 use App\Models\Karyawan;
 use App\Models\Kategori;
+use App\Models\Meja;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -222,6 +223,66 @@ class AdminController extends Controller
         $hapusMenu->delete();
         return redirect()->route('showMenu')->with('hapus','Data disimpan');
     }
+// ========================MEJA==================================
+public function showMeja()
+{
+$data = Meja::all();
+return view('meja.meja-home',[
+    'showMeja' => $data,
+]);
+
+}
+public function addMeja()
+{
+$meja = Meja::all();
+return view('meja.meja-add', [
+    'meja' => $meja
+]);
+}
+public function editMeja($no_meja)
+{
+    $meja = Meja::all()->find($no_meja);
+        return view('meja.meja-edit',[
+            'meja'=>$meja,
+        ]);
+ 
+    
+}
+public function updateMeja($id, Request $request)
+{
+    $request->validate([
+        'ket_meja' => 'required',
+    ]);
+    $meja = Meja::find($id);
+    $meja -> ket_meja = $request -> ket_meja;
+    $meja -> save();
+    $request->session()->flash('msg',"Data sudah diupdate");
+        return redirect('/admin/meja-home');
+    
+}
+
+function storeMeja(Request $data){
+    $data->validate([
+        // 'no_meja' => 'required',
+        'ket_meja' => 'required',
+    ]);
+    Meja::create([
+        // 'no_meja' => 'required',
+        'ket_meja'=>$data->ket_meja,
+        
+    ]);
+    $data->session()->flash('msg',"Data sudah ditambah");
+    return redirect('/admin/meja-add');
+    // massassignment
+    // $karyawan = Karyawan::create($request->all());
+
+}
+public function hapusMeja($id)
+{
+    $hapusMeja=Meja::find($id);
+    $hapusMeja->delete();
+    return redirect()->route('showMeja')->with('hapus','Data disimpan');
+}
 
     // raw query
     // public function saveKaryawan(Request $data)
@@ -243,61 +304,6 @@ class AdminController extends Controller
         
     // }
 
-    public function showJabatan(){
-    $showJabatan = DB::table('jabatans')->orderBy('id_jabatan');
-    return view('jabatan.jabatan-home', compact('showJabatan'));
-    }
-    public function addJabatan()
-    {
-    return view('jabatan.jabatan-add');
-    }
-    public function saveJabatan(Request $data)
-    {
-        $nama_jabatan = $data->nama_jabatan;
-        try {
-            $jabatan = new Jabatan();
-            $jabatan->nama_jabatan = $nama_jabatan;
-            $jabatan->save();
-            
-            $data->session()->flash('msg',"Data sudah disimpan");
-            return redirect('/admin/jabatan-add');
-            //echo 'data berhasil disimpan';
-        } catch (Throwable $e) {
-            echo $e;
-        }
-        
-    }
-    public function editJabatan($id_jabatan)
-    {
-        $dataJabatan = Jabatan::find($id_jabatan);
-        //$datawarga = new data;
-        $data = [
-            'id_jabatan' => $dataJabatan->id_jabatan,
-            'nama_jabatan' => $dataJabatan->nama_jabatan,
-        ];
-        return view('jabatan.jabatan-edit', $data);
-    }
-    public function updateJabatan(Request $data)
-    {
-        $id_jabatan = $data->id_jabatan;
-        $nama_jabatan = $data->nama_jabatan;
-        try {
-            $jabatan = Jabatan::find($id_jabatan);
-            $jabatan->nama_jabatan = $nama_jabatan;
-            $jabatan->save();
-            
-            $data->session()->flash('msg',"Data sudah diupdate");
-            return redirect('/admin/jabatan-home');
-            //echo 'data berhasil disimpan';
-        } catch (Throwable $e) {
-            echo $e;
-        }
-    }
-    public function hapusJabatan($id_jabatan)
-    {
-        Jabatan::find($id_jabatan)->delete();
-        return redirect()->back();
-    }
-
+    
 
 }

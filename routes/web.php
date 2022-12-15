@@ -88,6 +88,13 @@ Route::get('/admin/jabatan-edit/{id}', [JabatanController::class,'editJabatan'])
 Route::put('/admin/jabatan-edit/{id}', [JabatanController::class,'updateJabatan'])->name('updateJabatan');
 Route::get('/admin/jabatan-menu/{id}', [JabatanController::class,'hapusJabatan'])->name('hapusJabatan');
 
+// ====================MEJA===========================
+Route::get('/admin/meja-add', [AdminController::class,'addMeja'])->name('addMeja');
+Route::post('/admin/meja-store', [AdminController::class,'storeMeja'])->name('storeMeja');
+Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
+Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
+Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
+Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
 
 
 // Route::controller(AdminController::class)->group(function () {
