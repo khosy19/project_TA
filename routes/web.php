@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\Karyawan;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MejaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\SessionController;
-use App\Models\Karyawan;
+use App\Http\Controllers\KaryawanController;
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -96,6 +97,15 @@ Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showM
 Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
 Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
 Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
+
+// ====================PEMESANAN===========================
+Route::get('/admin/form-pilihmeja', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
+Route::get('/admin/form-pemesanan', [MejaController::class,'formPemesanan'])->name('formPemesanan');
+Route::post('/admin/form-pemesanan', [MejaController::class,'storePemesanan'])->name('storePemesanan');
+// Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
+// Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
+// Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
+// Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
 
 // ====================LOGIN===========================
 Route::get('/auth/login', [SessionController::class,'tampilLogin'])->name('tampilLogin');

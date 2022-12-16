@@ -16,7 +16,7 @@
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Data Karyawan
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
@@ -25,7 +25,7 @@
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Data Jabatan
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
@@ -34,7 +34,7 @@
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Data Menu
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
@@ -43,7 +43,7 @@
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Data Kategori
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
@@ -52,7 +52,7 @@
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Data Meja
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
@@ -60,7 +60,7 @@
           </li> 
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Data Transaksi
                 <i class="right fas fa-angle-left"></i>
@@ -68,29 +68,39 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item has-treeview">
-                <a href="{{ url('admin/karyawan-home') }}" class="nav-link">
-                  <i class="nav-icon fas fa-users"></i>
+                <a href="{{ url('admin/form-pemesanan') }}" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
                   <p>
-                    Data Pemesanan
-                    <i class="right fas fa-angle-right"></i>
+                    Form Pemesanan
+                    <i class="right fas"></i>
+                    {{-- <i class="right fas fa-angle-right"></i> --}}
                   </p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="{{ url('admin/jabatan-home') }}" class="nav-link">
-                  <i class="nav-icon fas fa-users"></i>
+                  <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Data Order
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="{{ url('admin/menu-home') }}" class="nav-link">
-                  <i class="nav-icon fas fa-users"></i>
+                  <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Data Antrian
-                    <i class="right fas fa-angle-right"></i>
+                    <i class="right fas"></i>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ url('admin/menu-home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Laporan
+                    <i class="right fas"></i>
                   </p>
                 </a>
               </li>
