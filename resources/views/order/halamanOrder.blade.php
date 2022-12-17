@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Halaman Pemesanan
+    Halaman Order
 @endsection
 @section('content')
 @if (session('msg'))
@@ -18,37 +18,30 @@
 <div class="card">
 <div class="card-header">
     <div class="card-tools">
-        <a href="{{ route('formPilihMeja') }}" class="btn btn-info">Tambah Pesanan</a>
+        <a href="{{ route('formPilihMeja') }}" class="btn btn-info">Scan QR Bayar</a>
     </div>
 <div class="row mb-4">
     <div class="col-md-12">
-        <h5 class="title">Filter Berdasarkan Status Pesanan</h5>
+        <h5 class="title">Filter Berdasarkan Status Order</h5>
         <hr class="my-3">
         <ul class="nav nav-pills card-header-pills autofocus">
             <li class="nav-item">
                 <a
-                    href="{{ route('formPemesanan') }}"
+                    href="{{ route('halamanPemesanan') }}"
                     class="nav-link"
                 >
-                    Pesanan Masuk
+                    Pesanan Belum Dibayar
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" active>
                 <a
-                    href="https://jagoantechno.com/angloresto/orderan/pesananDihidangkan"
+                    href="{{ route('halamanPemesananSudahBayar') }}"
                     class="nav-link"
                 >
-                    Pesanan Di Proses
+                    Pesanan Sudah Dibayar
                 </a>
             </li>
-            <li class="nav-item">
-                <a
-                    href="https://jagoantechno.com/angloresto/orderan/pesananSelesai"
-                    class="nav-link"
-                >
-                    Selesai
-                </a>
-            </li>
+            
         </ul>
     </div>
 </div>
@@ -63,34 +56,30 @@
         <table class="table table-sm table-bordered table-striped" style="text-align: center" id="myTable">
             <thead>
                 <tr>
-                    <th>No</th>
                     <th>No Meja</th>
+                    <th>Nama Pemesan</th>
                     <th>Nama Menu</th>
                     <th>Jumlah</th>
-                    <th>Status Menu</th>
+                    <th>Sub Total</th>
+                    <th>Total</th>
+                    <th>Metode Pembayaran</th>
+                    {{-- <th>Status Pesanan</th> --}}
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @if (!empty($pemesanan) && $pemesanan->count())
-                    @foreach ($pemesanan as $data)
+                @if (!empty($order) && $order->count())
+                    @foreach ($order as $data)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->no_meja }}</td>
+                        <td>{{ $data->nama_pemesan}}</td>
                         <td>{{ $data->nama_menu}}</td>
                         <td>{{ $data->jumlah }}</td>
-                        
-                        <td>
-                            @if ( $data->status_menu == 1)
-                            {{ 'Tersedia' }}
-                            @else
-                            {{ 'Habis' }}
-                            @endif
-                        </td>
-
-                        <td>
-
-                        </td>
+                        <td>{{ $data->subtotal }}</td>
+                        <td>{{ $data->total }}</td>
+                        <td>{{ $data->metode_pembayaran }}</td>
+                        <td></td>
+                        {{-- <td>{{ $data->status_pemesanan }}</td> --}}
                     </tr>
                     @endforeach
                     @else

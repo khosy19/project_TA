@@ -68,7 +68,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item has-treeview">
-                <a href="{{ url('admin/form-pemesanan') }}" class="nav-link">
+                <a href="{{ url('admin/halaman-pemesanan') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Form Pemesanan
@@ -78,7 +78,7 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="{{ url('admin/jabatan-home') }}" class="nav-link">
+                <a href="{{ url('admin/halaman-order') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Data Order
@@ -86,7 +86,7 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
+              {{-- <li class="nav-item has-treeview">
                 <a href="{{ url('admin/menu-home') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
@@ -94,7 +94,7 @@
                     <i class="right fas"></i>
                   </p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item has-treeview">
                 <a href="{{ url('admin/menu-home') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>

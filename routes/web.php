@@ -4,6 +4,7 @@ use App\Models\Karyawan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KasirController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\KaryawanController;
@@ -99,13 +100,24 @@ Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name
 Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
 
 // ====================PEMESANAN===========================
-Route::get('/admin/form-pilihmeja', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
-Route::get('/admin/form-pemesanan', [MejaController::class,'formPemesanan'])->name('formPemesanan');
-Route::post('/admin/form-pemesanan', [MejaController::class,'storePemesanan'])->name('storePemesanan');
+Route::get('/admin/halaman-pemesanan', [MejaController::class,'halamanPemesanan'])->name('halamanPemesanan');
+Route::get('/admin/halaman-pemesanan/sudahbayar', [MejaController::class,'halamanPemesananSudahBayar'])->name('halamanPemesananSudahBayar');
+Route::post('/admin/halaman-pemesanan', [MejaController::class,'storePemesanan'])->name('storePemesanan');
+Route::get('/admin/pemesanan-pilihmeja', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
+Route::get('/admin/pemesanan-pesanpilihmeja', [MejaController::class,'formPesanPilihMeja'])->name('formPesanPilihMeja');
+Route::put('/admin/pemesanan-pesanpilihmeja/{id}', [MejaController::class,'storeOrderPelanggan'])->name('storeOrderPelanggan');
 // Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
 // Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
 // Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
 // Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
+
+// ====================ORDER===========================
+
+Route::get('/admin/order-scanOrderKasir', [KasirController::class,'scanOrderKasir'])->name('scanOrderKasir');
+Route::get('/admin/halaman-order', [KasirController::class,'halamanOrder'])->name('halamanOrder');
+Route::get('/admin/halaman-order/bayar', [KasirController::class,'halamanOrderBayar'])->name('halamanOrderBayar');
+Route::post('/admin/order-scanOrderKasir', [KasirController::class,'storeOrder'])->name('storeOrder');
+
 
 // ====================LOGIN===========================
 Route::get('/auth/login', [SessionController::class,'tampilLogin'])->name('tampilLogin');
