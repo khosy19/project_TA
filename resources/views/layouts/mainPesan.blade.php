@@ -29,7 +29,7 @@
         /* margin-top: 0px; */
         padding: 0 2em;
         border-radius: 0.5rem;
-        background-color: rgb(224, 162, 28);
+        background-color: rgb(36, 143, 48);
         line-height: 5em;
         font-weight: bold;
         font-size: 12px;
@@ -96,7 +96,7 @@
 
     .tab-indicator {
         height: 3px;
-        background-color: yellow;
+        background-color: rgb(4, 137, 28);
         border-radius: 3px 3px 0 0;
         grid-column: var(--index)/span 1 !important;
         grid-row: 1/2;
@@ -135,9 +135,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="background-color: #fff;">
-                <div class="form-group mb-3 bg-warning text-center">
+                <div class="form-group mb-3 bg-success text-center">
                     <label for="name">Nama Pemesan</label>
-                    <input autofocus type="text" class="form-control" name="name" placeholder="Isi Nama Pemesan">
+                    <input autofocus type="text" class="form-control" name="nama_pemesan" placeholder="Isi Nama Pemesan">
                     <span class="text-danger error-text name_error"></span>
                 </div>
             </div>

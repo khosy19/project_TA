@@ -30,4 +30,14 @@ class KasirController extends Controller
             'pemesnaan' => $pemesanan,
         ]);
         }
+    public function pemesananAdd(){
+        $pemesanan = Pemesanan::all();
+        // $meja = Meja::all();
+        // $order = Order::all();
+        return view('pemesanan.pemesanan-add', [
+        'pemesanan' => $pemesanan,
+        // 'order' => $order,
+        // 'meja' => $meja,
+    ]);
+    }    
 }

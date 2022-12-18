@@ -195,6 +195,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //qr code
+        // SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
     ],
 
@@ -210,6 +212,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        // 'QrCode' => SimpleSoftwareIO\QrCode\Facades\Pemesanan::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

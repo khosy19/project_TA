@@ -6,21 +6,29 @@ use App\Models\Meja;
 use App\Models\Menu;
 use App\Models\Antrian;
 use App\Models\Karyawan;
+use App\Models\Kategori;
+use App\Models\Order;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class MejaController extends Controller
 {
     //user meja yang guna memesan menu ke form menu
     public function halamanPemesanan(){
-    $data = Pemesanan::join('menus', 'menus.id_menu', '=', 'pemesanans.id_menu')->where('status_pemesanan', 1)->get();
+    $data = Pemesanan::join('menus', 'menus.id_menu', '=', 'pemesanans.id_menu')
+    ->join('orders', 'orders.id_pemesanan', '=', 'pemesanans.id_pemesanan')
+    ->where('status_pemesanan', 1)->get();
     // return die($data);
     $meja = Meja::all();
     $menu = Menu::all();
+    $order = Order::all();
     return view('pemesanan.halamanPemesanan',[
         'pemesanan' => $data,
         'meja' => $meja,
         'menu' => $menu,
+        'order' => $order,
     ]);
     }
     public function halamanPemesananSudahBayar(){
@@ -46,9 +54,10 @@ class MejaController extends Controller
             // 'menu' => $menu,
         ]);
         }
-    public function formPesanPilihMeja($id,Request $request){
+    public function formPesanPilihMeja(Request $request){
         $pesanan = Pemesanan::join('orders', 'pemesanans.id_pemesanan', '=', 'orders.id_pemesanan')
         ->join('menus', 'orders.id_menu', '=', 'menus.id_menu')
+        ->join('kategoris', 'orders.id_kategori', '=', 'kategoris.id_kategori')
         ->get();
         // return die($data);
         // dd($pesanan);
@@ -56,9 +65,15 @@ class MejaController extends Controller
         // $antrian = Antrian::all();
         $pemesanan = Pemesanan::all();
         $menu = Menu::all();
+        $kategori = Kategori::all();
+
+        // $makanan = Pemesanan::create([
+        //     ''
+        // ]);
         return view('pemesanan.formPesanPilihMeja',[
             'order' => $pesanan,
             'menu' => $menu,
+            'kategori' => $kategori,
             // 'karyawan' => $karyawan,
             // 'antrian' => $antrian,
             'pemesanan' => $pemesanan,

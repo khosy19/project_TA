@@ -56,13 +56,10 @@
         <table class="table table-sm table-bordered table-striped" style="text-align: center" id="myTable">
             <thead>
                 <tr>
-                    <th>No Meja</th>
-                    <th>Nama Pemesan</th>
-                    <th>Nama Menu</th>
+                    <th>ID Pemesanan</th>
                     <th>Jumlah</th>
                     <th>Sub Total</th>
                     <th>Total</th>
-                    <th>Metode Pembayaran</th>
                     {{-- <th>Status Pesanan</th> --}}
                     <th>Aksi</th>
                 </tr>
@@ -71,13 +68,10 @@
                 @if (!empty($order) && $order->count())
                     @foreach ($order as $data)
                     <tr>
-                        <td>{{ $data->no_meja }}</td>
-                        <td>{{ $data->nama_pemesan}}</td>
-                        <td>{{ $data->nama_menu}}</td>
+                        <td>{{ $data->id_pemesanan }}</td>
                         <td>{{ $data->jumlah }}</td>
                         <td>{{ $data->subtotal }}</td>
                         <td>{{ $data->total }}</td>
-                        <td>{{ $data->metode_pembayaran }}</td>
                         <td></td>
                         {{-- <td>{{ $data->status_pemesanan }}</td> --}}
                     </tr>

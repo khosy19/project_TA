@@ -4,6 +4,7 @@ use App\Models\Karyawan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\SessionController;
@@ -16,6 +17,12 @@ use App\Http\Controllers\KaryawanController;
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/qrcode', function () {
+    return view('qrccode');
+});
+Route::get('/halamancheckout', function () {
+    return view('pemesanan.halamanCheckout');
+});
 Route::get('/login', function(){
     return view('auth.login');
 });
@@ -23,6 +30,7 @@ Route::controller(main_layout::class)->group(function(){
     Route::get('/layouts/home','home');
     Route::get('/layouts/index','index');
 });
+// Route::get('/qrcode', [Controller::class,'qrcode'])->name('qrcode');
 
 //Admin
 // Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -101,10 +109,13 @@ Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name
 
 // ====================PEMESANAN===========================
 Route::get('/admin/halaman-pemesanan', [MejaController::class,'halamanPemesanan'])->name('halamanPemesanan');
+Route::get('/admin/pemesanan-add', [KasirController::class,'pemesananAdd'])->name('pemesananAdd');
 Route::get('/admin/halaman-pemesanan/sudahbayar', [MejaController::class,'halamanPemesananSudahBayar'])->name('halamanPemesananSudahBayar');
 Route::post('/admin/halaman-pemesanan', [MejaController::class,'storePemesanan'])->name('storePemesanan');
 Route::get('/admin/pemesanan-pilihmeja', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
+// Route::put('/admin/pemesanan-pilihmeja/{id}', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
 Route::get('/admin/pemesanan-pesanpilihmeja', [MejaController::class,'formPesanPilihMeja'])->name('formPesanPilihMeja');
+Route::get('/admin/pemesanan-checkout', [MejaController::class,'halamancheckout'])->name('halamanCheckout');
 Route::put('/admin/pemesanan-pesanpilihmeja/{id}', [MejaController::class,'storeOrderPelanggan'])->name('storeOrderPelanggan');
 // Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
 // Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');

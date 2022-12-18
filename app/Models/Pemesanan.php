@@ -15,6 +15,10 @@ class Pemesanan extends Model
     public $timestamps = false;
     protected $fillable = [
         'id_menu',
+        'id_order',
+        'nama_pemesanan',
+        'nama_menu',
+        'id_kategori',
         'no_meja',
         'jumlah',
         'status_pemesanan',

@@ -16,31 +16,32 @@
 
 @endif
 <div class="card">
-<div class="card-header">
-    <div class="card-tools">
-        <a href="{{ route('formPilihMeja') }}" class="btn btn-info">Tambah Pesanan</a>
-    </div>
-<div class="row mb-4">
-    <div class="col-md-12">
-        <h5 class="title">Filter Berdasarkan Status Pesanan</h5>
-        <hr class="my-3">
-        <ul class="nav nav-pills card-header-pills autofocus">
-            <li class="nav-item">
-                <a
-                    href="{{ route('halamanPemesanan') }}"
-                    class="nav-link"
-                >
-                    Pesanan Belum Dibayar
-                </a>
-            </li>
-            <li class="nav-item">
-                <a
-                    href="{{ route('halamanPemesananSudahBayar') }}"
-                    class="nav-link"
-                >
-                    Pesanan Sudah Dibayar
-                </a>
-            </li>
+    <div class="card-header">
+        <div class="card-tools">
+            <a href="{{ route('pemesananAdd') }}" class="btn btn-danger">Scan Pesanan</a>
+            <a href="{{ route('formPilihMeja') }}" class="btn btn-warning">Tambah Pesanan</a>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h5 class="title">Filter Berdasarkan Status Pesanan</h5>
+                <hr class="my-3">
+                <ul class="nav nav-pills card-header-pills autofocus">
+                    <li class="nav-item">
+                        <a
+                            href="{{ route('halamanPemesanan') }}"
+                            class="nav-link"
+                        >
+                            Pesanan Belum Dibayar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="{{ route('halamanPemesananSudahBayar') }}"
+                            class="nav-link"
+                        >
+                            Pesanan Sudah Dibayar
+                        </a>
+                    </li>
             
         </ul>
     </div>
