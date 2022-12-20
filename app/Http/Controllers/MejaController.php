@@ -15,45 +15,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MejaController extends Controller
 {
-    //user meja yang guna memesan menu ke form menu
-    public function halamanPemesanan(){
-    $data = Pemesanan::join('menus', 'menus.id_menu', '=', 'pemesanans.id_menu')
-    ->join('orders', 'orders.id_pemesanan', '=', 'pemesanans.id_pemesanan')
-    ->where('status_pemesanan', 1)->get();
-    // return die($data);
-    $meja = Meja::all();
-    $menu = Menu::all();
-    $order = Order::all();
-    return view('pemesanan.halamanPemesanan',[
-        'pemesanan' => $data,
-        'meja' => $meja,
-        'menu' => $menu,
-        'order' => $order,
-    ]);
-    }
-    public function halamanPemesananSudahBayar(){
-    $data = Pemesanan::join('menus', 'menus.id_menu', '=', 'pemesanans.id_menu')->where('status_pemesanan', 2)->get();
-    // $data = $data->makeHidden(['status_pemesanan'=>1]);
-    // return die($data);
-    $meja = Meja::all();
-    $menu = Menu::all();
-    return view('pemesanan.halamanPemesananSudahBayar',[
-        'pemesanan' => $data,
-        'meja' => $meja,
-        'menu' => $menu,
-    ]);
-    }
-    public function formPilihMeja(){
-        $data = Pemesanan::join('mejas', 'mejas.no_meja', '=', 'pemesanans.no_meja')->get();
-        // return die($data);
-        $meja = Meja::all();
-        // $menu = Menu::all();
-        return view('pemesanan.formPilihMeja',[
-            'pemesanan' => $data,
-            'pilihMeja' => $meja,
-            // 'menu' => $menu,
-        ]);
-        }
+    
     public function formPesanPilihMeja(Request $request){
         $pesanan = Pemesanan::join('orders', 'pemesanans.id_pemesanan', '=', 'orders.id_pemesanan')
         ->join('menus', 'orders.id_menu', '=', 'menus.id_menu')

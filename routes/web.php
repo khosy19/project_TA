@@ -108,11 +108,16 @@ Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name
 Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
 
 // ====================PEMESANAN===========================
-Route::get('/admin/halaman-pemesanan', [MejaController::class,'halamanPemesanan'])->name('halamanPemesanan');
+Route::get('/admin/halaman-pemesanan', [KasirController::class,'halamanPemesanan'])->name('halamanPemesanan');
 Route::get('/admin/pemesanan-add', [KasirController::class,'pemesananAdd'])->name('pemesananAdd');
-Route::get('/admin/halaman-pemesanan/sudahbayar', [MejaController::class,'halamanPemesananSudahBayar'])->name('halamanPemesananSudahBayar');
-Route::post('/admin/halaman-pemesanan', [MejaController::class,'storePemesanan'])->name('storePemesanan');
-Route::get('/admin/pemesanan-pilihmeja', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
+Route::get('/admin/pemesanan-edit/{id}', [KasirController::class,'pemesananEdit'])->name('pemesananEdit');
+Route::put('/admin/pemesanan-edit/{id}', [KasirController::class,'pemesananUpdate'])->name('pemesananUpdate');
+//scan qr dari kasir ke customer
+Route::post('/admin/pemesanan-validasi', [KasirController::class,'validasi'])->name('validasi');
+//
+Route::get('/admin/halaman-pemesanan/sudahbayar', [KasirController::class,'halamanPemesananSudahBayar'])->name('halamanPemesananSudahBayar');
+Route::post('/admin/halaman-pemesanan', [KasirController::class,'storePemesanan'])->name('storePemesanan');
+Route::get('/admin/pemesanan-pilihmeja', [KasirController::class,'formPilihMeja'])->name('formPilihMeja');
 // Route::put('/admin/pemesanan-pilihmeja/{id}', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
 Route::get('/admin/pemesanan-pesanpilihmeja', [MejaController::class,'formPesanPilihMeja'])->name('formPesanPilihMeja');
 Route::get('/admin/pemesanan-checkout', [MejaController::class,'halamancheckout'])->name('halamanCheckout');
@@ -126,6 +131,7 @@ Route::put('/admin/pemesanan-pesanpilihmeja/{id}', [MejaController::class,'store
 
 Route::get('/admin/order-scanOrderKasir', [KasirController::class,'scanOrderKasir'])->name('scanOrderKasir');
 Route::get('/admin/halaman-order', [KasirController::class,'halamanOrder'])->name('halamanOrder');
+Route::get('/admin/cetak-order', [KasirController::class,'cetakOrder'])->name('cetakOrder');
 Route::get('/admin/halaman-order/bayar', [KasirController::class,'halamanOrderBayar'])->name('halamanOrderBayar');
 Route::post('/admin/order-scanOrderKasir', [KasirController::class,'storeOrder'])->name('storeOrder');
 

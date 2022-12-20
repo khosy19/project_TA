@@ -72,7 +72,9 @@
                         <td>{{ $data->jumlah }}</td>
                         <td>{{ $data->subtotal }}</td>
                         <td>{{ $data->total }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ route('cetakOrder'), $data->id_order }}" class="btn btn-primary" target="_blank">Cetak</a>
+                        </td>
                         {{-- <td>{{ $data->status_pemesanan }}</td> --}}
                     </tr>
                     @endforeach

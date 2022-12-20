@@ -83,7 +83,7 @@
                         </td>
 
                         <td>
-
+                            <a href="{{ route('pemesananEdit', $data->id_pemesanan) }}" class="btn btn-primary">Edit</a>   
                         </td>
                     </tr>
                     @endforeach

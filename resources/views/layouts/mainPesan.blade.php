@@ -129,7 +129,7 @@
         </section>
       {{-- </div> --}}
 {{-- =================FOOTER PESANAN PELANGGAN=================================== --}}
-<footer id="footer">
+{{-- <footer id="footer">
     <!--Footer-->
 <div class="fixed-bottom bg-white">
     <div class="container">
@@ -175,7 +175,7 @@
         </div>
     </div>
 </div>
-</footer>
+</footer> --}}
 
 {{-- =================FOOTER PESANAN PELANGGAN=================================== --}}
 <!-- jQuery -->
