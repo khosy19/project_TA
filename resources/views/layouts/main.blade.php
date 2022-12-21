@@ -38,7 +38,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-
+        <a href="{{ route('logout') }}">Logout</a>
       </li>
       
     </ul>

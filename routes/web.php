@@ -32,81 +32,6 @@ Route::controller(main_layout::class)->group(function(){
 });
 // Route::get('/qrcode', [Controller::class,'qrcode'])->name('qrcode');
 
-//Admin
-// Route::get('/', [AdminController::class, 'index'])->name('index');
-// Route::view('/karyawan/karyawan-home','karyawan.karyawan-home');
-// Route::get('/', [KaryawanController::class, 'index']);
-// Route::get('karyawan/karyawan-home', [AdminController::class, 'index'])->name('index2');
-//ADMIN HALAMAN UTAMA
-// Route::get('/admin', [AdminController::class,'index'])->name('index');
-//ADMIN HALAMAN MENU DATA KARYAWAN
-//Route::get('/admin/karyawan-home', [AdminController::class,'dataKaryawan'])->name('dataKaryawan');
-
-Route::controller(JabatanController::class)->group(function () {
-    //get data karyawan
-    // Route::get('/admin/karyawan-home', 'showKaryawan')->name('showKaryawan');
-    // Route::get('/admin/karyawan-add', 'addKaryawan');
-    // Route::get('/admin/karyawan-edit/{id-Karyawan}', 'editKaryawan');
-    //get data jabatan
-    // Route::get('/admin/jabatan-home', 'showJabatan')->name('showJabatan');
-    // Route::get('/admin/jabatan-add', 'addJabatan');
-    // Route::get('/admin/jabatan-edit/{id_jabatan}', 'editJabatan');
-    //post
-    // Route::post('/admin/karyawan-simpan', 'saveKaryawan');
-    // Route::post('/admin/jabatan-simpan', 'saveJabatan');
-
-    // Route::put('/admin/karyawan-update','updateKaryawan');
-    // Route::put('/admin/jabatan-update','updateJabatan');
-
-    // Route::delete('/admin/hapus/{id-karyawan}','deleteKaryawan');
-    // Route::delete('/admin/jabatan-hapus/{id_jabatan}','hapusJabatan');
-    // Route::post('/orders', 'store');
-
-});
-//ELOQUENT ROUTE
-// =================KARYAWAN===========================
-Route::get('/admin/karyawan-add', [AdminController::class,'addKaryawan'])->name('addKaryawan');
-Route::post('/admin/karyawan-store', [AdminController::class,'storeKaryawan'])->name('storeKaryawan');
-Route::get('/admin/karyawan-home', [AdminController::class,'showKaryawan'])->name('show');
-Route::get('/admin/karyawan-edit/{id}', [AdminController::class,'editKaryawan'])->name('edit');
-Route::put('/admin/karyawan-edit/{id}', [AdminController::class,'updateKaryawan'])->name('update');
-Route::get('/admin/hapus-karyawan/{id}', [AdminController::class,'hapusKaryawan'])->name('hapus');
-
-// ====================KATEGORI=============================
-
-Route::get('/admin/kategori-add', [AdminController::class,'addKategori'])->name('addKategori');
-Route::post('/admin/kategori-store', [AdminController::class,'storeKategori'])->name('storeKategori');
-Route::get('/admin/kategori-home', [AdminController::class,'showKategori'])->name('showKategori');
-Route::get('/admin/kategori-edit/{id}', [AdminController::class,'editKategori'])->name('editKategori');
-Route::put('/admin/kategori-edit/{id}', [AdminController::class,'updateKategori'])->name('updateKategori');
-Route::get('/admin/hapus-kategori/{id}', [AdminController::class,'hapusKategori'])->name('hapusKategori');
-
-
-// ====================MENU=============================
-
-Route::get('/admin/menu-add', [AdminController::class,'addMenu'])->name('addMenu');
-Route::post('/admin/menu-store', [AdminController::class,'storeMenu'])->name('storeMenu');
-Route::get('/admin/menu-home', [AdminController::class,'showMenu'])->name('showMenu');
-Route::get('/admin/menu-edit/{id}', [AdminController::class,'editMenu'])->name('editMenu');
-Route::put('/admin/menu-edit/{id}', [AdminController::class,'updateMenu'])->name('updateMenu');
-Route::get('/admin/hapus-menu/{id}', [AdminController::class,'hapusMenu'])->name('hapusMenu');
-
-// ====================JABATAN===========================
-Route::get('/admin/jabatan-add', [JabatanController::class,'addJabatan'])->name('addJabatan');
-Route::post('/admin/jabatan-store', [JabatanController::class,'storeJabatan'])->name('storeJabatan');
-Route::get('/admin/jabatan-home', [JabatanController::class,'showJabatan'])->name('showJabatan');
-Route::get('/admin/jabatan-edit/{id}', [JabatanController::class,'editJabatan'])->name('editJabatan');
-Route::put('/admin/jabatan-edit/{id}', [JabatanController::class,'updateJabatan'])->name('updateJabatan');
-Route::get('/admin/jabatan-menu/{id}', [JabatanController::class,'hapusJabatan'])->name('hapusJabatan');
-
-// ====================MEJA===========================
-Route::get('/admin/meja-add', [AdminController::class,'addMeja'])->name('addMeja');
-Route::post('/admin/meja-store', [AdminController::class,'storeMeja'])->name('storeMeja');
-Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
-Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
-Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
-Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
-
 // ====================PEMESANAN===========================
 Route::get('/admin/halaman-pemesanan', [KasirController::class,'halamanPemesanan'])->name('halamanPemesanan');
 Route::get('/admin/pemesanan-add', [KasirController::class,'pemesananAdd'])->name('pemesananAdd');
@@ -138,8 +63,13 @@ Route::post('/admin/order-scanOrderKasir', [KasirController::class,'storeOrder']
 
 // ====================LOGIN===========================
 Route::get('/auth/login', [SessionController::class,'tampilLogin'])->name('tampilLogin');
+Route::get('/auth/logout', [SessionController::class,'tampilLogin'])->name('logout');
+// Route::get('/auth/login', [SessionController::class,'tampilLogin'])->name('tampilLogin');
 Route::post('/auth/loginUser', [SessionController::class,'Login'])->name('Login');
 
+// ====================REGISTER===========================
+// Route::get('/auth/register', [SessionController::class,'tampilRegister'])->name('tampilRegister');
+// Route::post('/auth/register', [SessionController::class,'registerStore'])->name('registerStore');
 
 // Route::controller(AdminController::class)->group(function () {
 //     Route::get('/karyawan/karyawan-home', 'index')->name('index3');
@@ -149,3 +79,72 @@ Route::post('/auth/loginUser', [SessionController::class,'Login'])->name('Login'
 //     Route::delete('/karyawan/hapus/{id-karyawan}','delete');
 //     Route::post('/orders', 'store');
 // });
+
+//level admin
+Route::middleware('auth', 'validatelevels:admin')->group(function () {
+// =================KARYAWAN===========================
+Route::get('/admin/karyawan-add', [AdminController::class,'addKaryawan'])->name('addKaryawan');
+Route::post('/admin/karyawan-store', [AdminController::class,'storeKaryawan'])->name('storeKaryawan');
+Route::get('/admin/karyawan-home', [AdminController::class,'showKaryawan'])->name('show');
+Route::get('/admin/karyawan-edit/{id}', [AdminController::class,'editKaryawan'])->name('edit');
+Route::put('/admin/karyawan-edit/{id}', [AdminController::class,'updateKaryawan'])->name('update');
+Route::get('/admin/hapus-karyawan/{id}', [AdminController::class,'hapusKaryawan'])->name('hapus');
+
+// ====================KATEGORI=============================
+
+Route::get('/admin/kategori-add', [AdminController::class,'addKategori'])->name('addKategori');
+Route::post('/admin/kategori-store', [AdminController::class,'storeKategori'])->name('storeKategori');
+Route::get('/admin/kategori-home', [AdminController::class,'showKategori'])->name('showKategori');
+Route::get('/admin/kategori-edit/{id}', [AdminController::class,'editKategori'])->name('editKategori');
+Route::put('/admin/kategori-edit/{id}', [AdminController::class,'updateKategori'])->name('updateKategori');
+Route::get('/admin/hapus-kategori/{id}', [AdminController::class,'hapusKategori'])->name('hapusKategori');
+
+
+// ====================MENU=============================
+
+Route::get('/admin/menu-add', [AdminController::class,'addMenu'])->name('addMenu');
+Route::post('/admin/menu-store', [AdminController::class,'storeMenu'])->name('storeMenu');
+Route::get('/admin/menu-home', [AdminController::class,'showMenu'])->name('showMenu');
+Route::get('/admin/menu-edit/{id}', [AdminController::class,'editMenu'])->name('editMenu');
+Route::put('/admin/menu-edit/{id}', [AdminController::class,'updateMenu'])->name('updateMenu');
+Route::get('/admin/hapus-menu/{id}', [AdminController::class,'hapusMenu'])->name('hapusMenu');
+
+// ====================MEJA===========================
+Route::get('/admin/meja-add', [AdminController::class,'addMeja'])->name('addMeja');
+Route::post('/admin/meja-store', [AdminController::class,'storeMeja'])->name('storeMeja');
+Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
+Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
+Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
+Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
+
+// =================USER===========================
+Route::get('/admin/user-add', [SessionController::class,'addUser'])->name('addUser');
+Route::post('/admin/user-store', [SessionController::class,'storeUser'])->name('storeUser');
+Route::get('/admin/user-home', [SessionController::class,'showUser'])->name('showUser');
+Route::get('/admin/user-edit/{id}', [SessionController::class,'editUser'])->name('editUser');
+Route::put('/admin/user-edit/{id}', [SessionController::class,'updateUser'])->name('updateUser');
+Route::get('/admin/hapus-user/{id}', [SessionController::class,'hapusUser'])->name('hapusUser');
+
+// ====================JABATAN===========================
+Route::get('/admin/jabatan-add', [JabatanController::class,'addJabatan'])->name('addJabatan');
+Route::post('/admin/jabatan-store', [JabatanController::class,'storeJabatan'])->name('storeJabatan');
+Route::get('/admin/jabatan-home', [JabatanController::class,'showJabatan'])->name('showJabatan');
+Route::get('/admin/jabatan-edit/{id}', [JabatanController::class,'editJabatan'])->name('editJabatan');
+Route::put('/admin/jabatan-edit/{id}', [JabatanController::class,'updateJabatan'])->name('updateJabatan');
+Route::get('/admin/jabatan-menu/{id}', [JabatanController::class,'hapusJabatan'])->name('hapusJabatan');
+});
+
+//level kasir
+Route::middleware('auth', 'validatelevels:kasir')->group(function () {
+
+});
+
+//level k.produksi
+Route::middleware('auth', 'validatelevels:produksi')->group(function () {
+
+});
+
+//level customer
+Route::middleware('auth', 'validatelevels:4')->group(function () {
+
+});

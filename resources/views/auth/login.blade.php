@@ -36,10 +36,10 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masukkan Username dan Password</p>
 
-      <form action="/auth/loginUser" method="post">
+      <form action="{{ route('Login') }}" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="username" name="username" class="form-control" value="{{ Session::get('username') }}" placeholder="Username">
+          <input type="email" name="email" class="form-control" placeholder="Masukkan Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Masukkan Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

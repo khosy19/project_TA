@@ -56,6 +56,15 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ url('admin/user-home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Data User
+                    <i class="right fas"></i>
+                  </p>
+                </a>
+              </li>
             </ul>
           </li> 
           <li class="nav-item has-treeview menu-open">

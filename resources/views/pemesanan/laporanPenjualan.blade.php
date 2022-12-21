@@ -18,13 +18,13 @@
     .tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
     .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
     </style>
-    <table class="tg" style="undefined;table-layout: fixed; width: 1280px">
-    <colgroup>
+    <table class="tg" style="undefined;table-layout: fixed;" style="100%">
+    {{-- <colgroup>
     <col style="width: 199px">
     <col style="width: 338px">
     <col style="width: 369px">
     <col style="width: 350px">
-    </colgroup>
+    </colgroup> --}}
     <thead>
       <tr>
         <th class="tg-2dy9" colspan="4"><span style="font-weight:bold">GRANDE GARDEN CAFE</span><br>Jl. Kaliandra, Gamoh, Dayurejo, Kecamatan. Prigen, Pasuruan, Jawa Timur, 67157</th>
@@ -47,58 +47,11 @@
         <td class="tg-0pky">{{ ($data->nama_menu) }}</td>
         <td class="tg-0pky">{{ number_format($data->total,0,',','.') }}</td>
       </tr>
-      @endforeach
-      
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        {{-- <td class="tg-0pky" colspan="2" rowspan="3">Penerima,<br><br><br><br>Oktavia<br>(Owner Grande Garden Cafe)</td> --}}
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
+      @endforeach  
     </tbody>
     </table>
+    <br><br><br>
+        <td>Penerima,<br><br><br><br>Okta<br>(Owner Grande Garden Cafe)</td>
+
 </body>
 </html>
