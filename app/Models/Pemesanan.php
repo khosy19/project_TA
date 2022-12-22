@@ -16,10 +16,12 @@ class Pemesanan extends Model
     protected $fillable = [
         'id_menu',
         'id_order',
-        'nama_pemesanan',
+        'nama_pemesan',
         'nama_menu',
         'id_kategori',
         'no_meja',
         'jumlah',
+        'subtotal',
+        'total',
         'status_pemesanan',
     ];}

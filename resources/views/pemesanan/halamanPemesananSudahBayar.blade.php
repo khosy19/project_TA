@@ -18,7 +18,8 @@
 <div class="card">
 <div class="card-header">
     <div class="card-tools">
-        <a href="{{ route('formPilihMeja') }}" class="btn btn-info">Tambah Pesanan</a>
+        <a href="{{ route('pemesananAdd') }}" class="btn btn-danger">Scan Pesanan</a>
+        <a href="{{ route('formPilihMeja') }}" class="btn btn-warning">Tambah Pesanan</a>
     </div>
 <div class="row mb-4">
     <div class="col-md-12">
@@ -41,7 +42,6 @@
                     Pesanan Sudah Dibayar
                 </a>
             </li>
-            
         </ul>
     </div>
 </div>
@@ -57,9 +57,12 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>ID Pemesanan</th>
                     <th>No Meja</th>
                     <th>Nama Menu</th>
                     <th>Jumlah</th>
+                    <th>Sub Total</th>
+                    <th>Total</th>
                     <th>Status Pesanan</th>
                     <th>Aksi</th>
                 </tr>
@@ -69,13 +72,17 @@
                     @foreach ($pemesanan as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->id_pemesanan }}</td>
                         <td>{{ $data->no_meja }}</td>
                         <td>{{ $data->nama_menu}}</td>
                         <td>{{ $data->jumlah }}</td>
-                        
+                        <td>{{ $data->subtotal }}</td>
+                        <td>{{ $data->total }}</td>
                         <td>
                             @if ( $data->status_pemesanan == 2)
                             {{ 'Sudah Dibayar' }}
+                            @else
+                            {{ 'Belum Dibayar' }}
                             @endif
                         </td>
 

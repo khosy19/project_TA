@@ -58,9 +58,12 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>ID Pemesanan</th>
                     <th>No Meja</th>
                     <th>Nama Menu</th>
                     <th>Jumlah</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
                     <th>Status Pesanan</th>
                     <th>Aksi</th>
                 </tr>
@@ -70,9 +73,12 @@
                     @foreach ($pemesanan as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->id_pemesanan }}</td>
                         <td>{{ $data->no_meja }}</td>
                         <td>{{ $data->nama_menu}}</td>
                         <td>{{ $data->jumlah }}</td>
+                        <td>{{ $data->subtotal }}</td>
+                        <td>{{ $data->total }}</td>
                         
                         <td>
                             @if ( $data->status_pemesanan == 1)

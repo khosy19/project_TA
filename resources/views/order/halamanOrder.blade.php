@@ -20,31 +20,6 @@
     <div class="card-tools">
         <a href="{{ route('formPilihMeja') }}" class="btn btn-info">Scan QR Bayar</a>
     </div>
-<div class="row mb-4">
-    <div class="col-md-12">
-        <h5 class="title">Filter Berdasarkan Status Order</h5>
-        <hr class="my-3">
-        <ul class="nav nav-pills card-header-pills autofocus">
-            <li class="nav-item">
-                <a
-                    href="{{ route('halamanPemesanan') }}"
-                    class="nav-link"
-                >
-                    Pesanan Belum Dibayar
-                </a>
-            </li>
-            <li class="nav-item" active>
-                <a
-                    href="{{ route('halamanPemesananSudahBayar') }}"
-                    class="nav-link"
-                >
-                    Pesanan Sudah Dibayar
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
 </div>
 
 <div class="card-body">

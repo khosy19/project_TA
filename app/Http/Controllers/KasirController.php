@@ -73,10 +73,12 @@ class KasirController extends Controller
         // return die($data);
         $meja = Meja::all();
         $menu = Menu::all();
+        $order = Order::all();
         return view('pemesanan.halamanPemesananSudahBayar',[
             'pemesanan' => $data,
             'meja' => $meja,
             'menu' => $menu,
+            'order' => $order,
             
         ]);
         }
@@ -108,7 +110,22 @@ class KasirController extends Controller
         
             
             // }
+    public function subtotal(Request $request){
+        $this->validate($request,[
+            'id_menu'  =>  'required',
+            'jumlah'   =>  'required',
+            'harga'    =>  'required',
+        ]);
+        $id_order = $request->id_order;
+        $harga = $request->harga;
+        $jumlah = $request->jumlah;
+        $subtotal = $harga * $jumlah;
+        $total = $subtotal;
 
+        $data = Order::join('menus', 'menus.id_menu', '=', 'orders', 'orders.id_menu')
+        ->where('id_order', $id_order)
+        ->get();
+    }
 
     // ===================ORDER=======================
     public function halamanOrder(){

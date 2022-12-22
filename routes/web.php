@@ -10,9 +10,6 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\KaryawanController;
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -20,9 +17,9 @@ Route::get('/dashboard', function () {
 Route::get('/qrcode', function () {
     return view('qrccode');
 });
-Route::get('/halamancheckout', function () {
-    return view('pemesanan.halamanCheckout');
-});
+// Route::get('/halamancheckout', function () {
+//     return view('pemesanan.halamanCheckout');
+// });
 Route::get('/login', function(){
     return view('auth.login');
 });
@@ -33,6 +30,7 @@ Route::controller(main_layout::class)->group(function(){
 // Route::get('/qrcode', [Controller::class,'qrcode'])->name('qrcode');
 
 // ====================PEMESANAN===========================
+//ROLE KASIR(ALL), ADMIN(ALL), PRODUKSI(HALAMAN PEMESANAN)
 Route::get('/admin/halaman-pemesanan', [KasirController::class,'halamanPemesanan'])->name('halamanPemesanan');
 Route::get('/admin/pemesanan-add', [KasirController::class,'pemesananAdd'])->name('pemesananAdd');
 Route::get('/admin/pemesanan-edit/{id}', [KasirController::class,'pemesananEdit'])->name('pemesananEdit');
@@ -44,13 +42,13 @@ Route::get('/admin/halaman-pemesanan/sudahbayar', [KasirController::class,'halam
 Route::post('/admin/halaman-pemesanan', [KasirController::class,'storePemesanan'])->name('storePemesanan');
 Route::get('/admin/pemesanan-pilihmeja', [KasirController::class,'formPilihMeja'])->name('formPilihMeja');
 // Route::put('/admin/pemesanan-pilihmeja/{id}', [MejaController::class,'formPilihMeja'])->name('formPilihMeja');
-Route::get('/admin/pemesanan-pesanpilihmeja', [MejaController::class,'formPesanPilihMeja'])->name('formPesanPilihMeja');
-Route::get('/admin/pemesanan-checkout', [MejaController::class,'halamancheckout'])->name('halamanCheckout');
-Route::put('/admin/pemesanan-pesanpilihmeja/{id}', [MejaController::class,'storeOrderPelanggan'])->name('storeOrderPelanggan');
-// Route::get('/admin/meja-home', [AdminController::class,'showMeja'])->name('showMeja');
-// Route::get('/admin/meja-edit/{id}', [AdminController::class,'editMeja'])->name('editMeja');
-// Route::put('/admin/meja-edit/{id}', [AdminController::class,'updateMeja'])->name('updateMeja');
-// Route::get('/admin/meja-hapus/{id}', [AdminController::class,'hapusMeja'])->name('hapusMeja');
+
+//PELANGGAN (MEJA)
+Route::get('/pesan-pelanggan', [MejaController::class,'pesanPelanggan'])->name('pesanPelanggan');
+Route::post('/halaman-checkout', [MejaController::class,'halamanCheckout'])->name('halamanCheckout');
+// Route::get('/halaman-checkout', [MejaController::class,'halamanCheckout'])->name('halamanCheckout');
+// Route::get('/checkout', [MejaController::class,'halamancheckout'])->name('halamanCheckout');
+Route::put('/admin/pemesanan-pesanpilihmeja', [MejaController::class,'storeOrderPelanggan'])->name('storeOrderPelanggan');
 
 // ====================ORDER===========================
 

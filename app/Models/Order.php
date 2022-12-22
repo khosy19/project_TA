@@ -18,6 +18,7 @@ class Order extends Model
         'id_karyawan',
         'id_pemesanan',
         'id_menu',
+        'jumlah',
         'subtotal',
         'total',
         'metode_pembayaran',
