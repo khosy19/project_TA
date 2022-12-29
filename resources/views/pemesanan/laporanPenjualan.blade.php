@@ -19,12 +19,6 @@
     .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
     </style>
     <table class="tg" style="undefined;table-layout: fixed;" style="100%">
-    {{-- <colgroup>
-    <col style="width: 199px">
-    <col style="width: 338px">
-    <col style="width: 369px">
-    <col style="width: 350px">
-    </colgroup> --}}
     <thead>
       <tr>
         <th class="tg-2dy9" colspan="4"><span style="font-weight:bold">GRANDE GARDEN CAFE</span><br>Jl. Kaliandra, Gamoh, Dayurejo, Kecamatan. Prigen, Pasuruan, Jawa Timur, 67157</th>
@@ -38,7 +32,7 @@
         <td class="tg-7btt">ID PEMESANAN</td>
         <td class="tg-7btt">NAMA PELANGGAN</td>
         <td class="tg-7btt">MENU YANG DIPESAN</td>
-        <td class="tg-7btt">TOTAL</td>
+        <td class="tg-7btt">PENDAPATAN</td>
       </tr>
       @foreach ($cetakOrder as $data)
       <tr>
@@ -50,6 +44,7 @@
       @endforeach  
     </tbody>
     </table>
+    <p><h3>Total Pendapatan : {{ number_format($total_pendapatan,0,',','.') }}</h3></p>
     <br><br><br>
         <td>Penerima,<br><br><br><br>Okta<br>(Owner Grande Garden Cafe)</td>
 

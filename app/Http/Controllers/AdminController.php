@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Throwable;
+use App\Models\Meja;
+use App\Models\Menu;
+use App\Models\Order;
 use App\Models\Jabatan;
 use App\Models\Karyawan;
 use App\Models\Kategori;
-use App\Models\Meja;
-use App\Models\Menu;
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -284,13 +286,44 @@ public function hapusMeja($id)
     return redirect()->route('showMeja')->with('hapus','Data disimpan');
 }
 
-public function lihatPemesanan()
-{
-    
+public function laporan(){
+    return view('admin.laporan');
 }
-public function order()
+
+public function cetakPenjualan()
 {
-    
+    $cetakPenjualan = Pemesanan::join('orders', 'pemesanans.id_pemesanan', '=', 'orders.id_pemesanan')
+    ->join('menus', 'orders.id_menu', '=', 'menus.id_menu')
+    ->get();
+    $total_pendapatan = Order::sum('total');
+    return view('pemesanan.laporanPenjualan',[
+        'cetakOrder' => $cetakPenjualan,
+        'total_pendapatan' => $total_pendapatan,
+    ]);
+}
+public function cetakMenuTerjual()
+{
+    $cetakMenuTerjual = Pemesanan::join('orders', 'pemesanans.id_pemesanan', '=', 'orders.id_pemesanan')
+    ->join('menus', 'orders.id_menu', '=', 'menus.id_menu')->orderBy('jumlah','desc')
+    ->get();
+    // $jml_menu = Order::orderBy('jumlah', 'desc');
+    // return ($jml_menu);
+    // die();
+    return view('pemesanan.menuFavorit',[
+        'cetakMenuTerjual' => $cetakMenuTerjual,
+        // 'jml_menu' => $jml_menu,
+    ]);
+}
+public function cetakTransaksi()
+{
+    $cetakTransaksi = Pemesanan::join('orders', 'pemesanans.id_pemesanan', '=', 'orders.id_pemesanan')
+    ->join('menus', 'orders.id_menu', '=', 'menus.id_menu')
+    ->get();
+    $jml_transaksi = Order::count('id_order');
+    return view('pemesanan.laporanJumlahTransaksi',[
+        'cetakTransaksi' => $cetakTransaksi,
+        'jml_transaksi' => $jml_transaksi,
+    ]);
 }
 public function antrianMasuk(){
 

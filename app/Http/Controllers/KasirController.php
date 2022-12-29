@@ -164,9 +164,11 @@ class KasirController extends Controller
             //     'cetak'   => $cetak,
             //     'potongan'=> $potongan
             // ]);
-
+            // $total =
+            $total_pendapatan = Order::sum('total');
             return view('pemesanan.laporanPenjualan',[
                 'cetakOrder' => $cetakOrder,
+                'total_gaji' => $total_pendapatan,
             ]);
             }    
     public function pemesananAdd(){

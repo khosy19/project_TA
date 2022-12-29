@@ -130,6 +130,13 @@ Route::get('/admin/jabatan-home', [JabatanController::class,'showJabatan'])->nam
 Route::get('/admin/jabatan-edit/{id}', [JabatanController::class,'editJabatan'])->name('editJabatan');
 Route::put('/admin/jabatan-edit/{id}', [JabatanController::class,'updateJabatan'])->name('updateJabatan');
 Route::get('/admin/jabatan-menu/{id}', [JabatanController::class,'hapusJabatan'])->name('hapusJabatan');
+
+
+// ========================LAPORAN============================
+Route::get('admin/laporan',[AdminController::class,'laporan'])->name('laporan');
+Route::get('admin/laporanpenjualan',[AdminController::class,'cetakPenjualan'])->name('cetakPenjualan');
+Route::get('admin/laporanfavorit',[AdminController::class,'cetakMenuTerjual'])->name('cetakMenuTerjual');
+Route::get('admin/laporantransaksi',[AdminController::class,'cetakTransaksi'])->name('cetakTransaksi');
 });
 
 //level kasir
